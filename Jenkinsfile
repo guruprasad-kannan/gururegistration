@@ -9,8 +9,10 @@ pipeline{
         }
              stage("Build using maven"){
             steps{
-                def mvnHome =  tool name: 'maven3', type: 'maven'   
-                sh "${mvnHome}/bin/mvn clean install"
+                script{
+                   def mvnHome =  tool name: 'maven3', type: 'maven'   
+                   sh "${mvnHome}/bin/mvn clean install"
+                }                
            }
         }
     }
