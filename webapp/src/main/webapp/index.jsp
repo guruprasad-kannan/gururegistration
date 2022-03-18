@@ -31,7 +31,7 @@
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
 
-   <h1> Thankyou, code updated of version 2</h1>
+   <h1> Thankyou, code updated using declarative SCM file</h1>
 
   
 </form>
