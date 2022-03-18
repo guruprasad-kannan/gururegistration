@@ -32,7 +32,7 @@ pipeline{
                 }                
            }
         }
-              stage("Build using docker"){
+              stage("Pushing image to dockerhub"){
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerpass', variable: 'dockerPassword')]) {
