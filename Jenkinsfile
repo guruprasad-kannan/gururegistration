@@ -52,7 +52,17 @@ pipeline{
 	                    }
                     }
                 }
-            }                
+            } 
+            stage("Deployment"){
+                steps{
+                   script{
+                      sh 'docker run -d -p 8090:8080 --name tomcattest guruprasad1996/registrationapp:v1'
+                    }
+                }
+            } 
+
+
+
     }                
 }
 
