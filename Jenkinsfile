@@ -22,7 +22,7 @@ pipeline{
             stage("Build using docker"){
             steps{
                 script{
-                    sh 'docker build -t guruprasad1996/registrationapp:v1 .'
+                    sh 'docker build -t guruprasad1996/registrationapp:v2 .'
                 }                
            }
         }
@@ -32,7 +32,7 @@ pipeline{
                    withCredentials([string(credentialsId: 'dockerpass', variable: 'dockerPassword')]) {
                    sh "docker login -u guruprasad1996 -p ${dockerPassword}"
                   }
-                   sh 'docker push guruprasad1996/registrationapp:v1'
+                   sh 'docker push guruprasad1996/registrationapp:v2'
                     }
                 }                
            }
@@ -50,7 +50,7 @@ pipeline{
             stage("Deployment"){
                 steps{
                    script{
-                      sh 'docker run -d -p 8090:8080 --name tomcattest guruprasad1996/registrationapp:v1'
+                      sh 'docker run -d -p 8090:8080 --name tomcattest guruprasad1996/registrationapp:v2'
                     }
                 }
             } 
