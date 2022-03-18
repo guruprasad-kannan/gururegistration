@@ -24,7 +24,16 @@ pipeline{
                 }                
            }
         }
+    } 
+            stage("Build using docker"){
+            steps{
+                script{
+                    sh 'docker build -t guruprasad1996/registrationapp:v1 .'
+                }                
+           }
+        }
     }
+        
 }
-}
+
     
