@@ -32,8 +32,19 @@ pipeline{
                 }                
            }
         }
+              stage("Build using docker"){
+            steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerpass', variable: 'dockerPassword')]) {
+                   sh "docker login -u guruprasad1996 -p ${dockerPassword}"
+                  }
+                   sh 'docker push guruprasad1996/registrationapp:v1'
+                    }
+                }                
+           }
+        }
     }
         
-}
+
 
     
